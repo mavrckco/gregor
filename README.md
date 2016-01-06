@@ -9,16 +9,14 @@ Gregor's primary goal is to provide a simple and reusable structure for generati
 
 You can install Gregor from Bitbucket with
 
-::
 
     $ pip3 install git+https://bitbucket.com/mavrck/gregor.git
 
 
 You can install Gregor for local development and testing with
 
-::
 
     $ python setup.py develop
 
-.. _JVM Kafka client: https://github.com/apache/kafka/tree/0.8.2/clients/src/main/java/org/apache/kafka
-.. _PyKafka: http://pykafka.readthedocs.org/en/latest/
+_JVM Kafka client: https://github.com/apache/kafka/tree/0.8.2/clients/src/main/java/org/apache/kafka
+_PyKafka: http://pykafka.readthedocs.org/en/latest/
