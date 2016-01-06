@@ -1,4 +1,3 @@
-from .errors import InvalidDataError
 from .register import RegisteredMetaclass
 
 class Consumer(object, metaclass=RegisteredMetaclass):

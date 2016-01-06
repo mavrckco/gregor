@@ -12,4 +12,5 @@ setup(name='gregor',
           'pykafka==2.1.1',
           'avro==1.7.7'
       ],
+      scripts=['bin/run_consumer.py'],
       zip_safe=False)
