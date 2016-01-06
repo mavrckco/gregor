@@ -18,5 +18,6 @@ You can install Gregor for local development and testing with
 
     $ python setup.py develop
 
-_JVM Kafka client: https://github.com/apache/kafka/tree/0.8.2/clients/src/main/java/org/apache/kafka
-_PyKafka: http://pykafka.readthedocs.org/en/latest/
+JVM Kafka client: https://github.com/apache/kafka/tree/0.8.2/clients/src/main/java/org/apache/kafka
+
+PyKafka: http://pykafka.readthedocs.org/en/latest/
