@@ -16,26 +16,23 @@ class Schema(object):
         if not self._schema:
             schema_file = self.schema_file_name
             with open(schema_file) as f:
-                schema = avro.schema.Parse(f.read()) 
-            return schema
+                self._schema = avro.schema.Parse(f.read()) 
         return self._schema
 
     @property
     def writer(self):
         if not self._writer:
-            writer = DatumWriter(writer_schema=self.schema) 
+            self._writer = DatumWriter(writer_schema=self.schema)
             self._bytes_writer = io.BytesIO()
             self._encoder = avro.io.BinaryEncoder(self._bytes_writer)
-            return writer
         return self._writer
 
     @property
     def reader(self):
         if not self._reader:
-            reader = DatumReader(self.schema) 
+            self._reader = DatumReader(self.schema) 
             self._bytes_reader = io.BytesIO()
             self._decoder = avro.io.BinaryDecoder(self._bytes_reader)
-            return reader
         return self._reader 
     
     def encode(self, message):

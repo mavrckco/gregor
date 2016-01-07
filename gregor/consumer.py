@@ -20,8 +20,7 @@ class Consumer(object, metaclass=RegisteredMetaclass):
     def consumer(self):
         if not self._consumer:
             topic_instance = self._client.topics[self.topic.name.encode()]
-            consumer = topic_instance.get_balanced_consumer(consumer_group=self.consumer_group_name.encode(), **self._settings)
-            return consumer
+            self._consumer = topic_instance.get_balanced_consumer(consumer_group=self.consumer_group_name.encode(), **self._settings)
         return self._consumer
 
     def consume(self):

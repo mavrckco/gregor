@@ -15,8 +15,7 @@ class Producer(object):
     def producer(self):
         if not self._producer:
             topic_instance = self._client.topics[self.topic.name.encode()]
-            producer = topic_instance.get_producer(**self._options)
-            return producer
+            self._producer = topic_instance.get_producer(**self._options)
         return self._producer
 
     def produce(self, message):
