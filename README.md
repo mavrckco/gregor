@@ -67,6 +67,16 @@ class UserTopic(Topic):
 
 After creating a topic, we can now generate Producers and Consumers.
 
+Running The Examples
+---
+* cd in `examples`
+* Turn on Kafka 
+* Turn on ZooKeeper
+* Turn on the consumer in a separate shell
+    * `python3.5 test_consumer.py`
+* Turn on the producer in a separate shell
+    * `python3.5 test_producer.py`
+
 DO NOT READ AFTER THIS. JUST USING TEMPLATE FOR DOCS :D
 ---
 

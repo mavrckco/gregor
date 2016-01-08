@@ -1,0 +1,11 @@
+{
+    "namespace": "user.avro",
+    "type": "record",
+    "name": "User",
+    "fields": [
+        {"name": "id", "type": "int", "doc": "The id of the user."},
+        {"name": "first_name", "type": "string", "doc": "The user's first name."},
+        {"name": "last_name", "type": "string", "doc": "The user's last name."},
+        {"name": "age", "type": "int", "doc": "The user's age."}
+    ]
+}
