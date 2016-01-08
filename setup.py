@@ -10,7 +10,7 @@ setup(name='gregor',
       packages=['gregor'],
       install_requires=[
           'pykafka==2.1.1',
-          'avro==1.7.7'
+          'avro-python3==1.7.7'
       ],
       scripts=['bin/run_consumer.py'],
       zip_safe=False)
