@@ -51,20 +51,35 @@ Here is an example user schema stored in schemas/user.avsc.
     ]
 }
 ```
-
-To create an instance of this schema that can encode and decode data to and from kafka, just instantiate a Schema object with the file and path. Path defaults to the current directory.
+To utilize the schema, you must create a topic, and generate an instance of this schema that can encode and decode data to and from kafka on class declaration. Path defaults to the current directory.
 
 ```
 #!python
 
-from gregor.schema import Schema
-UserSchema = Schema("user.avsc", path='./schemas')
+from gregor import Topic
+from gregor import Schema
+
+class UserTopic(Topic):
+    name = 'user'
+    schema = Schema("user.avsc", path='./schemas')
 
 ```
 
-After creating a schema, you want to create a topic
-If the cluster you've connected to has any topics defined on it, you can list
-them with:
+After creating a topic, we can now generate Producers and Consumers.
+
+Running The Examples
+---
+* cd in `examples`
+* Turn on Kafka 
+* Turn on ZooKeeper
+* Turn on the consumer in a separate shell
+    * `python3.5 test_consumer.py`
+* Turn on the producer in a separate shell
+    * `python3.5 test_producer.py`
+
+DO NOT READ AFTER THIS. JUST USING TEMPLATE FOR DOCS :D
+---
+
 
 .. sourcecode:: python
 
