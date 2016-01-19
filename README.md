@@ -77,7 +77,9 @@ Running The Examples
 * Turn on the producer in a separate shell
     * `python3.5 test_producer.py`
 * Running the consumer console command
-    * `run_consumer.py -n 'test_print_consumer.TestPostConsumer' --hosts 127.0.0.1:9092 --root ./mavrck`
+    * `run_consumer.py -n test_consumer.TestPostConsumer`
+    * also try...
+    * `run_consumer.py -n test_consumer.TestPostConsumer --hosts 127.0.0.1:9092 --root ./mavrck`
 
 Diving Deep Into The Codebase
 ---
