@@ -76,6 +76,24 @@ Running The Examples
     * `python3.5 test_consumer.py`
 * Turn on the producer in a separate shell
     * `python3.5 test_producer.py`
+* Running the consumer console command
+    * `run_consumer.py -n 'test_print_consumer.TestPostConsumer' --hosts 127.0.0.1:9092 --root ./mavrck`
+###Trouble Shooting
+---
+
+* Creating a Topic in Zookeeper (if autocreate topic fails)
+    * `kafka-topics.sh --create --zookeeper 172.16.0.4:2181 --replication-factor 1 --partitions 1 --topic **test_post**`
+* Debugging Schema Errors from AVRO
+    * **TO DO**
+
+Diving Deep Into The Codebase
+---
+* Building a Producer
+    * view the example and for details on passing options read up on the following
+    * [Producer Init Parameters](https://github.com/Parsely/pykafka/blob/master/pykafka/producer.py#L47)
+* Building a Consumer
+    * view the example and for details on passing options read up on the following
+    * [Consumer Init Parameters](https://github.com/Parsely/pykafka/blob/master/pykafka/balancedconsumer.py#L59)
 
 DO NOT READ AFTER THIS. JUST USING TEMPLATE FOR DOCS :D
 ---
