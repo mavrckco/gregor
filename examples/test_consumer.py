@@ -16,7 +16,8 @@ class TestPostConsumer(Consumer):
     topic = TestPostTopic
     zookeeper_connect = 'localhost:2181'
     settings = {
-        'auto_offset_reset': OffsetType.LATEST
+        'auto_offset_reset': OffsetType.LATEST,
+        'zookeeper_connect': '172.16.0.4:2181', 
     }
     # 'process' receives every message and listens on a loop
     def process(self, message):
