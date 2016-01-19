@@ -8,16 +8,15 @@ import logging
 logging.basicConfig(level='DEBUG')
 
 class TestPostTopic(object):
-    name = 'test_post'
+    name = 'test_post2'
     schema = Schema("user.avsc", path='./schemas')
 
 class TestPostConsumer(Consumer):
     consumer_group_name = 'test_post'
     topic = TestPostTopic
-    zookeeper_connect = 'localhost:2181'
     settings = {
         'auto_offset_reset': OffsetType.LATEST,
-        'zookeeper_connect': '172.16.0.4:2181', 
+        'zookeeper_connect': 'localhost:2181', 
     }
     # 'process' receives every message and listens on a loop
     def process(self, message):
