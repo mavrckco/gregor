@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(level='DEBUG')
 
 class TestPostTopic(object):
-    name = 'test_post2'
+    name = 'test_post'
     schema = Schema("user.avsc", path='./schemas')
 
 # the following is the BARE MINIMUM needed to build a consumer

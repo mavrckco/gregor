@@ -16,7 +16,8 @@ def main(class_name, kafka, zookeeper):
     client = KafkaClient(hosts=','.join(kafka))
     # zookeeper connection string
     zookeeper_connection_string = ''.join(zookeeper)
-    setattr(consumer_class,'zookeeper_connect',zookeeper_connection_string)
+    # set the connection string!
+    consumer_class.settings['zookeeper_connect'] = zookeeper_connection_string
     # deploy the consumer!
     consumer = consumer_class(client)
 
