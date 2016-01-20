@@ -3,7 +3,6 @@ from .register import RegisteredMetaclass
 class Consumer(object, metaclass=RegisteredMetaclass):
     topic = None
     consumer_group_name = None
-    #zookeeper_connect = None
     settings = {}
 
     def __init__(self, client):
