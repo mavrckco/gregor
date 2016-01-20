@@ -77,7 +77,7 @@ Running The Examples
 * Turn on the producer in a separate shell
     * `python3.5 test_producer.py`
 * Running the consumer console command
-    * `run_consumer.py -n test_consumer.TestPostConsumer`
+    * `run_consumer.py -n test_consumer.TestPostConsumer --zookeeper 127.0.0.1:2181 --kafka 127.0.0.1:9092`
     * also try...
     * `run_consumer.py -n test_consumer.TestPostConsumer --zookeeper 172.16.0.4:2181 --kafka 172.16.0.6:9092 --root ./mavrck`
 
