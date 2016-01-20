@@ -79,7 +79,7 @@ Running The Examples
 * Running the consumer console command
     * `run_consumer.py -n test_consumer.TestPostConsumer`
     * also try...
-    * `run_consumer.py -n test_consumer.TestPostConsumer --hosts 127.0.0.1:9092 --root ./mavrck`
+    * `run_consumer.py -n test_consumer.TestPostConsumer --zookeeper 172.16.0.4:2181 --kafka 172.16.0.6:9092 --root ./mavrck`
 
 Diving Deep Into The Codebase
 ---
