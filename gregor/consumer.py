@@ -5,12 +5,12 @@ class Consumer(object, metaclass=RegisteredMetaclass):
     consumer_group_name = None
     settings = {}
 
-    def __init__(self, client):
+    def __init__(self, client, *args, **kwargs):
         self._client = client
         if not self.topic:
-            raise "You must assign a topic to this consumer."
+            raise AttributeError("You must assign a topic to this consumer.")
         if not self.consumer_group_name:
-            raise "You must assign a consumer_group_name to this consumer."
+            raise AttributeError("You must assign a consumer_group_name to this consumer.")
         self._topic = client.topics[self.topic.name.encode()]
         self._consumer = None
         self._settings = {}
@@ -33,4 +33,4 @@ class Consumer(object, metaclass=RegisteredMetaclass):
                 self.process(message)
 
     def process(self, message):
-        raise NotImplementedError
+        raise NotImplementedError("You must implement a process function.")
