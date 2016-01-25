@@ -22,6 +22,7 @@ class Schema(object):
     @property
     def writer(self):
         if not self._writer:
+            # set up the writer, byte stream, and encoder for writing data
             self._writer = DatumWriter(writer_schema=self.schema)
             self._bytes_writer = io.BytesIO()
             self._encoder = avro.io.BinaryEncoder(self._bytes_writer)
@@ -37,11 +38,17 @@ class Schema(object):
     
     def encode(self, message):
         try:
+            # write a message to the internal byte stream through the avro encoder
             self.writer.write(message, self._encoder)
         except AvroTypeException as e:
             raise ValueError("{} does not match the schema {}".format(e.args[0], self.schema_file_name))
         else:
+            # fetch the raw bytes value
             raw = self._bytes_writer.getvalue()
+
+            # reset the byte stream so we can reuse it
+            self._bytes_writer.seek(0)
+            self._bytes_writer.truncate(0)
             return raw
 
     def decode(self, message):
