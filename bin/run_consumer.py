@@ -2,7 +2,6 @@
 
 import argparse
 import importlib
-import os
 import sys
 import time
 import signal
@@ -19,7 +18,7 @@ def main(class_name, kafka, zookeeper):
     # set the connection string!
     consumer_class.settings['zookeeper_connect'] = zookeeper_connection_string
     # deploy the consumer!
-    consumer = consumer_class(client)
+    consumer = consumer_class(client=client)
 
     try:
         consumer.consume()
@@ -39,19 +38,21 @@ while __name__ == '__main__':
 
         # command line parsers
         parser = argparse.ArgumentParser(description='Run an instance of a kafka consumer.')
-        parser.add_argument('-n', '--name', type=str, help='File and Class to be run i.e. my_consumer.MyConsumer', required=True)
+        parser.add_argument('-A', '--app', type=str, help='Module that the consumer is registered to.', required=True)
+        parser.add_argument('-n', '--name', type=str, help='Class name of the worker.', required=True)
         parser.add_argument('--kafka', type=str, nargs='+', help='List of kafka hosts to connect the consumer to. try 127.0.0.1:9092 for local development', required=True, default=['127.0.0.1:9092'])
         parser.add_argument('--zookeeper', type=str, nargs='+', help='List of zookeeper hosts to connect the consumer to. try 127.0.0.1:2181 for local development', required=True, default=['127.0.0.1:2181'])
         parser.add_argument('--root', type=str, help='Root Path of where the consumer is being run', required=False, default='.')
         args = parser.parse_args()
 
         # load module
-        module, consumer_name = args.name.split('.')
+        module = args.app
+        consumer_name = args.name
         kafka = args.kafka
         zookeeper = args.zookeeper
         root = args.root
         try:
-            importlib.machinery.SourceFileLoader(module, os.path.join(root, '{}.py'.format(module))).load_module()
+            importlib.import_module(module)
         except ImportError as error:
             raise error
         else:
@@ -59,5 +60,3 @@ while __name__ == '__main__':
     except OSError as e:
         print('Consumer Crashed with error {}'.format(e))
         time.sleep(5)
-
-
