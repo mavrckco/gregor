@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='gregor',
-      version='0.1',
+      version='0.2',
       description='High level Kafka module wrapped around the pykafka library https://github.com/Parsely/pykafka that enforces Kafka best practices and encourages code reusability.',
       url='https://bitbucket.org/mavrck/gregor',
       author='Mike Laderman',
