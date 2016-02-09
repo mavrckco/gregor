@@ -104,7 +104,7 @@ class BatchConsumer(Consumer):
         if updated:
             return new_offsets    
 
-    def consume(self):
+    def consume(self, forever=True):
         """
             Loops through messages from the consumer and processes
             them in batches.
@@ -116,6 +116,9 @@ class BatchConsumer(Consumer):
             # the batch, and attempt to consume again.
             self.process_batch(self.batch_messages)
             self._reset_batch()
+            if not forever:
+                self.consumer.stop()
+                break
 
 
     def _reset_batch(self, new_offsets=None):
