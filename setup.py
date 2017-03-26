@@ -22,7 +22,7 @@ class PyTest(TestCommand):
 
 install_requires=[
     'pykafka==2.1.1',
-    'avro-python3==1.7.7'
+    'avro-python3==1.8.1'
 ]
 
 tests_require = [
