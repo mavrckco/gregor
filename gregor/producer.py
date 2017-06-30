@@ -1,7 +1,7 @@
 class Producer(object):
     topic = None
 
-    def __init__(self, client, topic=None, *args, **kwargs):
+    def __init__(self, client, topic=None, **kwargs):
         self._options = kwargs
         self._client = client
         if not self.topic:
